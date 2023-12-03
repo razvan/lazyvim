@@ -11,4 +11,4 @@ vim.api.nvim_set_option("clipboard", "unnamedplus")
 --   vim.b.autoformat=false
 --   vim.g.autoformat=false
 -- Disable annoying auto parens
-vim.g.mini_pairs.disable = true
+vim.g.minipairs_disable = true
