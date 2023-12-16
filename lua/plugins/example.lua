@@ -3,12 +3,33 @@
 -- if true then return {} end
 
 return {
-{
+  {
     "folke/persistence.nvim",
     -- opts will be merged with the parent spec
     -- add folds to session
     opts = { options = { "folds"} }
   },
+  {
+  "nvim-telescope/telescope.nvim",
+   dependencies = {
+    {
+        "nvim-telescope/telescope-live-grep-args.nvim" ,
+        -- This will not install any breaking changes.
+        -- For major updates, this must be adjusted manually.
+        version = "^1.0.0",
+      keys = {
+       {
+        "<leader>se",
+        function() require('telescope').extensions.live_grep_args.live_grep_args() end,
+        desc = "Grep (with args)",
+       }
+      },
+    },
+  },
+  config = function()
+    require("telescope").load_extension("live_grep_args")
+  end
+  }
 }
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
